@@ -1,5 +1,5 @@
 #!/bin/sh
-apk --no-cache add ca-certificates php7-fpm nginx tini bash
+apk --no-cache add ca-certificates php7-fpm php7-json nginx tini bash
 update-ca-certificates
 
 rm /etc/php7/php-fpm.conf
