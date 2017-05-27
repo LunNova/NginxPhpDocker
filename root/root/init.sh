@@ -2,6 +2,23 @@
 
 cd /root/
 
+if [ -d acme.sh-master ]; then
+	chmod -R 0777 acme.sh-master
+	if [ ! -d /config/acme.sh ]; then
+		pushd acme.sh-master
+		sudo -u nginx ./acme.sh --install --home /config/acme.sh
+		popd
+	else
+		pushd /config/acme.sh
+		. acme.sh.env
+		sudo -u nginx ./acme.sh --upgrade --auto-upgrade 0
+		./acme.sh --install-cronjob
+		sudo -u nginx ./acme.sh --cron
+		popd
+	fi
+	rm -rf acme.sh-master
+fi
+
 mkdir -p /config/php /config/nginx /config/sites /config/tmp
 
 if [ ! -d "/log/" ]; then
