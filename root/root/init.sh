@@ -11,9 +11,12 @@ if [ -d acme.sh-master ]; then
 	else
 		pushd /config/acme.sh
 		. acme.sh.env
-		sudo -u nginx ./acme.sh --upgrade --auto-upgrade 0
-		./acme.sh --install-cronjob
-		sudo -u nginx ./acme.sh --cron
+		export LE_WORKING_DIR="/config/acme.sh"
+		alias acme.sh="/config/acme.sh/acme.sh"
+		export PATH=/config/acme.sh:$PATH
+		sudo -u nginx ./acme.sh --upgrade  --home /config/acme.sh --auto-upgrade 0
+		./acme.sh --install-cronjob --home /config/acme.sh
+		sudo -u nginx ./acme.sh --cron --home /config/acme.sh
 		popd
 	fi
 	rm -rf acme.sh-master

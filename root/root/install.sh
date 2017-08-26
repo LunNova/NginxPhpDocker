@@ -3,7 +3,7 @@ set -e
 
 cd /root/
 
-apk --no-cache add ca-certificates php7-fpm php7-json nginx tini bash curl openssl sudo
+apk --no-cache add ca-certificates php7-fpm php7-json nginx tini bash curl openssl sudo vim
 update-ca-certificates
 
 rm /etc/php7/php-fpm.conf
