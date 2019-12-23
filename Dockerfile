@@ -1,5 +1,5 @@
 FROM alpine:edge
-MAINTAINER Ross Allan <docker@nallar.me>
+MAINTAINER Luna Allan <docker@nallar.me>
 
 ENV LANG=C.UTF-8 \
 FIXPERMISSIONS=true \

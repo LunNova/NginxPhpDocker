@@ -16,7 +16,3 @@ rm -rf /tmp/nginx
 ln -s /config/tmp /tmp/nginx
 
 rm -rf /log
-
-curl -L -o master.zip https://github.com/Neilpang/acme.sh/archive/master.zip
-unzip master.zip
-rm master.zip
